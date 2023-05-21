@@ -1,3 +1,4 @@
+import CartItem from "./components/CartItem";
 
 function App() {
 
@@ -5,6 +6,7 @@ function App() {
     <>
 
       <h1>Cart</h1>
+      <CartItem/>
     </>
   )
 }
