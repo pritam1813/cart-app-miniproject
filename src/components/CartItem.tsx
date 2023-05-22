@@ -25,6 +25,33 @@ class CartItem extends React.Component<{}, ComponentState> {
 
   increaseQuantity = () => {
     console.log("this: ", this.state.Qty);
+
+    //If we dont require previous state then use this
+    // this.setState({
+    //   Qty: this.state.Qty + 1
+    // });
+
+    //Else Use this
+    //Set state is a function from React.Component
+    this.setState((prevState) => {
+      return {
+        Qty: prevState.Qty + 1,
+      };
+    });
+  };
+
+  decreaseQuantity = () => {
+    this.setState((prevState) => {
+      if (prevState.Qty > 1) {
+        return {
+          Qty: prevState.Qty - 1,
+        };
+      } else {
+        return {
+          Qty: prevState.Qty,
+        };
+      }
+    });
   };
 
   render() {
@@ -47,7 +74,12 @@ class CartItem extends React.Component<{}, ComponentState> {
               alt="increase quantity"
               onClick={this.increaseQuantity}
             />
-            <img className="action-icons" src={minus} alt="decrease quantity" />
+            <img
+              className="action-icons"
+              src={minus}
+              alt="decrease quantity"
+              onClick={this.decreaseQuantity}
+            />
             <img className="action-icons" src={remove} alt="remove item" />
           </div>
         </div>
