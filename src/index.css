@@ -24,3 +24,7 @@ body {
 .action-icons:hover {
   cursor: pointer;
 }
+.cart-wrap{
+  display: flex;
+  flex-direction: column;
+}
