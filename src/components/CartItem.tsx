@@ -19,46 +19,47 @@ type ComponentProps = {
   onDeleteProduct: (id: number) => void;
 };
 
-class CartItem extends React.Component<ComponentProps> {
-  render() {
-    const { product, onIncreaseQuantity, onDecreaseQuantity, onDeleteProduct } =
-      this.props;
-    return (
-      <div className="cart-item">
-        <div className="left-block">
-          <img style={styles.image} src={phone} alt="Phone Image" />
-        </div>
-        <div className="right-block">
-          <div style={{ fontSize: 25 }}>{product.title}</div>
-          <div>Rs. {product.price}</div>
-          <div>Quantity: {product.qty}</div>
+const CartItem: React.FC<ComponentProps> = ({
+  product,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+  onDeleteProduct,
+}) => {
+  return (
+    <div className="cart-item">
+      <div className="left-block">
+        <img style={styles.image} src={phone} alt="Phone Image" />
+      </div>
+      <div className="right-block">
+        <div style={{ fontSize: 25 }}>{product.title}</div>
+        <div>Rs. {product.price}</div>
+        <div>Quantity: {product.qty}</div>
 
-          <div className="cart-item-actions">
-            {/* Buttons */}
-            <img
-              className="action-icons"
-              src={Add}
-              alt="increase quantity"
-              onClick={() => onIncreaseQuantity(product)}
-            />
-            <img
-              className="action-icons"
-              src={minus}
-              alt="decrease quantity"
-              onClick={() => onDecreaseQuantity(product)}
-            />
-            <img
-              className="action-icons"
-              src={remove}
-              alt="remove item"
-              onClick={() => onDeleteProduct(product.id)}
-            />
-          </div>
+        <div className="cart-item-actions">
+          {/* Buttons */}
+          <img
+            className="action-icons"
+            src={Add}
+            alt="increase quantity"
+            onClick={() => onIncreaseQuantity(product)}
+          />
+          <img
+            className="action-icons"
+            src={minus}
+            alt="decrease quantity"
+            onClick={() => onDecreaseQuantity(product)}
+          />
+          <img
+            className="action-icons"
+            src={remove}
+            alt="remove item"
+            onClick={() => onDeleteProduct(product.id)}
+          />
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 const styles = {
   image: {

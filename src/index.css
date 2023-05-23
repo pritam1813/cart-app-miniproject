@@ -28,3 +28,31 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* Navbar */
+
+.navbar {
+  height: 70px;
+  background: #19A7CE;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cartIcon {
+  height: 32px;
+  margin-right: 20px;
+}
+
+.cartIconContainer {
+  position: relative;
+}
+
+.cartCount {
+  background: yellow;
+  border-radius: 50%;
+  padding: 4px 8px;
+  position: absolute;
+  right: 0;
+  top: -9px;
+}
