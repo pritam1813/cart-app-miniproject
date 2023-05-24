@@ -2,7 +2,6 @@ import React from "react";
 import Add from "../assets/add.png";
 import minus from "../assets/minus.png";
 import remove from "../assets/delete.png";
-import phone from "../assets/phone.avif";
 
 type Product = {
   price: number;
@@ -28,7 +27,7 @@ const CartItem: React.FC<ComponentProps> = ({
   return (
     <div className="cart-item">
       <div className="left-block">
-        <img style={styles.image} src={phone} alt="Phone Image" />
+        <img style={styles.image} src={product.img} alt="Phone Image" />
       </div>
       <div className="right-block">
         <div style={{ fontSize: 25 }}>{product.title}</div>
