@@ -35,8 +35,15 @@ body {
   height: 70px;
   background: #19A7CE;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 5% 0;
+}
+
+.appTitle{
+  font-size: 2rem;
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .cartIcon {

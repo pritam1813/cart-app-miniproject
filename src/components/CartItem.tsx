@@ -8,14 +8,14 @@ type Product = {
   title: string;
   qty: number;
   img: string;
-  id: number;
+  id: string;
 };
 
 type ComponentProps = {
   product: Product;
   onIncreaseQuantity: (product: Product) => void;
   onDecreaseQuantity: (product: Product) => void;
-  onDeleteProduct: (id: number) => void;
+  onDeleteProduct: (id: string) => void;
 };
 
 const CartItem: React.FC<ComponentProps> = ({

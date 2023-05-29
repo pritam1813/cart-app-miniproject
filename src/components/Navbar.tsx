@@ -7,6 +7,7 @@ type NavbarProps = {
 const Navbar: React.FC<NavbarProps> = ({ getProductCount }) => {
   return (
     <div className="navbar">
+      <div className="appTitle">React Cart</div>
       <div className="cartIconContainer">
         <img className="cartIcon" src={CartIcon} alt="Cart Icon For Navbar" />
         <span className="cartCount">{getProductCount()}</span>

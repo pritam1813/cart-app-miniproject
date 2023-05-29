@@ -6,14 +6,14 @@ type Product = {
   title: string;
   qty: number;
   img: string;
-  id: number;
+  id: string;
 };
 
 type CartProps = {
   products: Product[];
   onIncreaseQuantity: (product: Product) => void;
   onDecreaseQuantity: (product: Product) => void;
-  onDeleteProduct: (id: number) => void;
+  onDeleteProduct: (id: string) => void;
 };
 
 const Cart: React.FC<CartProps> = ({

@@ -1,55 +1,70 @@
 import React from "react";
 import Cart from "./components/Cart";
 import Navbar from "./components/Navbar";
-import assets from "./assets/index";
+import { collection, onSnapshot } from "firebase/firestore";
+import db from "./main";
 
 type Product = {
   price: number;
   title: string;
   qty: number;
   img: string;
-  id: number;
+  id: string;
 };
 
 type CartState = {
   products: Product[];
+  loading: boolean;
 };
 
 class App extends React.Component<{}, CartState> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      products: [
-        {
-          price: 99,
-          title: "Watch",
-          qty: 2,
-          img: assets.watchImage,
-          id: 1,
-        },
-        {
-          price: 999,
-          title: "Mobile Phone",
-          qty: 3,
-          img: assets.phoneImage,
-          id: 2,
-        },
-        {
-          price: 999,
-          title: "Laptop",
-          qty: 1,
-          img: assets.laptopImage,
-          id: 3,
-        },
-        {
-          price: 99,
-          title: "Earphones",
-          qty: 2,
-          img: assets.earphoneImage,
-          id: 4,
-        },
-      ],
+      products: [],
+      loading: true,
     };
+  }
+
+  // async componentDidMount() {
+  //   const productsCollection = collection(db, "products");
+  //   const querySnapshot = await getDocs(productsCollection);
+
+  //   let products = querySnapshot.docs.map((doc) => {
+  //     const productData = doc.data();
+
+  //     // Explicitly casting the productData to the Product type
+  //     const product: Product = {
+  //       price: productData.price,
+  //       title: productData.title,
+  //       qty: productData.qty,
+  //       img: productData.img,
+  //       id: doc.id,
+  //     };
+
+  //     return product;
+  //   });
+  //   this.setState({ products, loading: false });
+  // }
+  componentDidMount() {
+    onSnapshot(collection(db, "products"), (querySnapshot) => {
+      let products = querySnapshot.docs.map((doc) => {
+        const productData = doc.data();
+
+        // Explicitly casting the productData to the Product type
+        const product: Product = {
+          price: productData.price,
+          title: productData.title,
+          qty: productData.qty,
+          img: productData.img,
+          id: doc.id,
+        };
+
+        return product;
+      });
+
+      this.setState({ products, loading: false });
+    });
   }
 
   handleIncreaseQuantity = (product: Product): void => {
@@ -86,7 +101,7 @@ class App extends React.Component<{}, CartState> {
     });
   };
 
-  handleDeleteProduct = (id: number): void => {
+  handleDeleteProduct = (id: string): void => {
     this.setState((prevState) => {
       const updatedProducts = prevState.products.filter((p) => p.id !== id);
       return {
@@ -120,7 +135,7 @@ class App extends React.Component<{}, CartState> {
   };
 
   render() {
-    const { products } = this.state;
+    const { products, loading } = this.state;
     return (
       <>
         <Navbar getProductCount={this.getProductCount} />
@@ -130,6 +145,7 @@ class App extends React.Component<{}, CartState> {
           onDecreaseQuantity={this.handleDecreaseQuantity}
           onDeleteProduct={this.handleDeleteProduct}
         />
+        {loading && <h2>Loading ...</h2>}
         <div>Total Price: {this.getTotalPrice()}</div>
       </>
     );
