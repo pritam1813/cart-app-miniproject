@@ -8,10 +8,11 @@ body {
 }
 .cart-item {
   display: inline-flex;
-  margin: 20px 10px;
+  color: #2C3333;
+  margin: 1% 5%;
 }
 .cart-item .right-block {
-  padding: 0 20px;
+  padding: 2%;
 }
 .cart-item-actions {
   margin-top: 20px;
@@ -33,7 +34,7 @@ body {
 
 .navbar {
   height: 70px;
-  background: #19A7CE;
+  background: #CBE4DE;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,11 +43,12 @@ body {
 
 .appTitle{
   font-size: 2rem;
-  color: white;
+  color: #2C3333;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .cartIcon {
+  max-width: 100%;
   height: 32px;
   margin-right: 20px;
 }
@@ -56,10 +58,22 @@ body {
 }
 
 .cartCount {
-  background: yellow;
+  background: #0E8388;
+  color: white;
   border-radius: 50%;
   padding: 4px 8px;
   position: absolute;
   right: 0;
   top: -9px;
+}
+
+.total-price{
+  font-size: 2rem;
+  margin-top: 2%;
+  margin-left: 5%;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
 }

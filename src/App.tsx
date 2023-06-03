@@ -107,6 +107,10 @@ class App extends React.Component<{}, CartState> {
     const { id, qty } = product;
     const productRef = doc(db, "products", id);
 
+    if (qty === 0) {
+      return;
+    }
+
     updateDoc(productRef, {
       qty: qty - 1,
     })
@@ -187,7 +191,7 @@ class App extends React.Component<{}, CartState> {
           onDeleteProduct={this.handleDeleteProduct}
         />
         {loading && <h2>Loading ...</h2>}
-        <div>Total Price: {this.getTotalPrice()}</div>
+        <div className="total-price">Total Price: {this.getTotalPrice()}</div>
       </>
     );
   }
