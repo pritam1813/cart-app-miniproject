@@ -44,4 +44,7 @@ ___
 - TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
 - Other dependencies used by Create React App (e.g., webpack, Babel, etc.)
 
+## Live Deployment
+
+- http://cart.pclyst.com
 ___
