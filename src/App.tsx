@@ -1,6 +1,5 @@
 import React from "react";
 import Cart from "./components/Cart";
-import Navbar from "./components/Navbar";
 import {
   collection,
   onSnapshot,
@@ -182,16 +181,16 @@ class App extends React.Component<{}, CartState> {
     const { products, loading } = this.state;
     return (
       <>
-        <Navbar getProductCount={this.getProductCount} />
         {/* <button onClick={this.addProduct}>Add Product</button> */}
         <Cart
           products={products}
           onIncreaseQuantity={this.handleIncreaseQuantity}
           onDecreaseQuantity={this.handleDecreaseQuantity}
           onDeleteProduct={this.handleDeleteProduct}
+          productCount={this.getProductCount()}
+          productTotalPrice={this.getTotalPrice()}
         />
         {loading && <h2>Loading ...</h2>}
-        <div className="total-price">Total Price: {this.getTotalPrice()}</div>
       </>
     );
   }

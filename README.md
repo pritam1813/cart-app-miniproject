@@ -9,6 +9,10 @@ This is a simple shopping cart application built with React. It allows users to 
 - Remove a product from the cart
 - Calculate and display the total number of products in the cart
 
+## Screenshot
+
+![AppScreenshot](https://images.pclyst.com/CartAppSnap.webp)
+
 ## Installation
 
 1. Clone the repository:
@@ -43,8 +47,4 @@ ___
 - react-dom: A package providing DOM-specific methods for React.
 - TypeScript: A typed superset of JavaScript that compiles to plain JavaScript.
 - Other dependencies used by Create React App (e.g., webpack, Babel, etc.)
-
-## Live Deployment
-
-- http://cart.pclyst.com
 ___
